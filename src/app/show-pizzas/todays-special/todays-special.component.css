@@ -1,0 +1,12 @@
+@media only screen and (max-width: 600px) {
+    .centered-text p {
+        font-size: 14px;
+    }
+}
+.centered-text {
+    text-align: center;
+}
+.fullSection{
+    padding: 20px;
+    margin: 6px;
+}

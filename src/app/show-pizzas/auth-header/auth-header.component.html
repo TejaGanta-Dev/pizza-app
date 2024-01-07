@@ -1,0 +1,45 @@
+<div class="d-flex header justify-content-between align-items-center">
+  <div style="cursor: pointer;" routerLink="/pizza/view" class="p-2">
+    <img
+            style="border: none;border-radius: 10px;"
+            height="40px"
+            width="200px"
+            src="assets/img/logo.png"
+            alt="cartImage"
+          />
+  </div>
+  <div
+    style="width: 130px"
+    class="p-2 d-flex justify-content-between align-items-center"
+  >
+    <div class="p-2">
+      <img
+        height="30px"
+        width="30px"
+        class="cursorPointer"
+        src="assets/img/cart.png"
+        alt="cartImage"
+      />
+    </div>
+    <div class="p-2">
+      <div class="dropdown" style="float: right">
+        <button class="dropbtn">
+          <img
+            style="border: none"
+            height="30px"
+            width="30px"
+            src="assets/img/profile.png"
+            alt="cartImage"
+          />
+        </button>
+        <div class="dropdown-content">
+          <a routerLink="/pizza/orders">Orders</a>
+          <a routerLink="/pizza/track">track Order</a>
+          <a routerLink="/pizza/today-special">Todays Special</a>
+          <a routerLink="/home" (click)="logout()">Logout</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

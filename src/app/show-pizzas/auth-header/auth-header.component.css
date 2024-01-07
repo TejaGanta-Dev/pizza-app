@@ -1,0 +1,18 @@
+.header{
+    padding: 10px;
+    height: 46px;
+    width: 100%;
+}
+.dropdown{
+    float: right !important;
+}
+.dropbtn{
+    background-color: white !important;
+}
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+  .cursorPointer{
+    cursor: pointer;
+    top:30px !important
+  }

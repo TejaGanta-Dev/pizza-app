@@ -1,0 +1,27 @@
+<div class='w-auto d-flex justify-content-center align-items-center m-1'>
+    <div class="card">
+      <form>
+        <h1>Pizza Shop </h1>
+        <input  autocomplete="off" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="registerSchema.customerName" placeholder="First Name" />
+        <input  autocomplete="off" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="registerSchema.mobileNumber" placeholder="Mobile Number" />
+        <input  autocomplete="off" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="registerSchema.emailId" placeholder="email" />
+        <input  autocomplete="off" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="registerSchema.address" placeholder="address" />
+        <label for="">Select Gender</label>
+
+          <select placeholder="Select Gender" style="height: 38px;" [ngModelOptions]="{standalone: true}" [(ngModel)]="registerSchema.gender" class="dropdown genderDropDown ">
+            <label for="">Select Gender</label>
+            <option value="male" class="male dropbtn">Male</option>
+            <option value="female" class="female dropbtn">Female</option>
+          </select>
+        <input type="password"[ngModelOptions]="{standalone: true}" [(ngModel)]="registerSchema.password" placeholder="Password" />
+        <button (click)="registerCustomer()"  class="button link">Register</button>
+        <p class="link">
+         <span (click)="navigateToLogin()"
+            class="forget"
+            >Login</span
+          >
+        </p>
+      </form>
+  </div>
+  </div>
+  

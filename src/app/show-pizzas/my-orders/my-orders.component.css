@@ -1,0 +1,41 @@
+.fullpage{
+    border: 1px solid #BABABA;
+    border-radius: 4px;
+    width: 90vw;
+    margin-bottom: 20px;
+}
+.eventDate{
+display: flex;
+justify-content: space-between;
+background-color: #E8E8E8;
+padding: 10px;
+border: 1px solid #BABABA;
+border-radius: 4px;
+}
+.serImg{
+    width: 160px;
+    height: 160px;
+}
+.content{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.imageDiv{
+    display: flex;
+    flex-direction: row;
+    width: 35vw;
+    justify-content: space-between;
+}
+.textColor{
+    color: #767676;
+}
+.detailsBox{
+    border: 1px solid #652D90;
+    color: #652D90;
+    border-radius: 4px;
+    padding: 10px 30px;
+    margin: 10px;
+    justify-content: center;
+    display: flex;
+}
