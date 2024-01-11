@@ -4,11 +4,7 @@
     height: 100%;
 
 }
-.fullSectionRow{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-}
+
 .fullSection{
     display: flex;
     justify-content: space-around;

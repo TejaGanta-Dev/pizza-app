@@ -9,10 +9,10 @@
             </div>
             <div class="rightSide">
                 <div class="imgAndTitle d-flex">
-                    <img style="margin-top: 2px;" width="20px" height="20px" src="/assets/img/veg.png" alt="Veg">
-                    <div class="title ml-2 h5">Special Chicken Pizza</div>
+                    <img style="margin-top: 2px;" width="20px" height="20px" [src]="getCategory(pizza.pizzaCategory)" alt="Veg">
+                    <div class="title ml-2 h5">{{pizza.pizzaName}}</div>
                 </div>
-                <div class="price mt-1 h5"> {{(430)|currency}}<img width="24px" height="24px" style="margin-left: 9px;" src="/assets/img/i.png" alt="pizzaImg">
+                <div class="price mt-1 h5"> {{(pizza.price)|currency:'INR':'symbol':'1.2-2'}}<img width="24px" height="24px" style="margin-left: 9px;" src="/assets/img/i.png" alt="pizzaImg">
                 </div>
                 <div class="description mt-1 mb-1">Pizza Description</div>
                 <div class="description">customize</div>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="addtoCart">
-            <button type="button" (click)="addToCart()" class="btn btn-secondary align-items-center" >
+            <button type="button" (click)="addToCart(pizza)" class="btn btn-secondary align-items-center" >
                 Add to Cart
               </button>
         </div>

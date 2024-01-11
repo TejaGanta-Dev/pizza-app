@@ -3,7 +3,7 @@
         <div class="card">
           <form>
             <input  autocomplete="off" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="OrderId" placeholder="Enter OrderId" />
-            <button  class="button link">Track</button>
+            <button (click)="trackOrder()"  class="button link">Track</button>
           </form>
       </div>
       </div>

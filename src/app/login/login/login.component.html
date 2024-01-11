@@ -2,7 +2,7 @@
   <div class="card">
     <form>
       <h1>Customer </h1>
-      <input  autocomplete="off" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="loginSchema.id" placeholder="Email or Username" />
+      <input  autocomplete="off" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="loginSchema.username" placeholder="Email or Username" />
       <input type="password"[ngModelOptions]="{standalone: true}" [(ngModel)]="loginSchema.password" placeholder="Password" />
       <button  (click)="loginAsUser()" class="button link">Login</button>
       <p class="link">

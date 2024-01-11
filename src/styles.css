@@ -9,7 +9,11 @@
   border: none;
   cursor: pointer;
 }
-
+.fullSectionRow{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -40,3 +44,8 @@
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.setFooterToBottom{
+  width: 100%;
+  height: 100%;
+}

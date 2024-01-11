@@ -15,7 +15,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DailogPopupComponent } from './Service/dailog-popup/dailog-popup.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
-
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent, ShowPizzasComponent, FooterComponent,AuthHeaderComponent, DailogPopupComponent],
   imports: [

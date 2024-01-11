@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiServiceService } from 'src/app/Service/Api-Service/api-service.service';
 
 @Component({
@@ -8,12 +9,13 @@ import { ApiServiceService } from 'src/app/Service/Api-Service/api-service.servi
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  constructor(private router: ActivatedRoute, private route: Router,private api:ApiServiceService) {}
+  constructor(private router: ActivatedRoute, private route: Router,private api:ApiServiceService, private spinner:NgxSpinnerService) {}
   registerSchema: any = {
-    customerName: '',
-    mobileNumber: '',
-    address: '',
+    customerName: 'Tejaaa',
+    mobileNumber: '9997773773',
+    address: 'jhh  duifhiuwe ikuhwirgfiygewd',
     gender: '',
+    emailId:'@capgemini.com'
   };
 
   navigateToLogin() {
@@ -48,19 +50,31 @@ export class RegisterComponent {
 
   registerCustomer() {
     if (this.validationForRegistration()) {
-      console.log(this.registerSchema);
+      this.registerAsCustomer(this.registerSchema)
     }
   }
 
   registerAsCustomer(body:any) {
+    this.spinner.show()
     this.api.registerCustomer(body).subscribe(
       (res) => {
-        if (res) {
+        this.spinnerTimeOut()    
+          if(res.customerId){
+            alert('Register Success');
+            this.route.navigate(['/login'])
+            return
         }
       },
       (err) => {
+        this.spinnerTimeOut()    
         alert(err.error.message);
       }
     );
+  }
+
+  spinnerTimeOut(){
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 1000);  
   }
 }

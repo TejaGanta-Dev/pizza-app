@@ -1,28 +1,29 @@
-<div class="container" *ngIf="myOrdersList?.length > 0">
-    <div class="fullpage" *ngFor="let order of myOrdersList">
-
-        <div class="eventDate">
-            <div class="date "><span class="textColor">Event date: </span> {{order.eventDate |date: 'MM/dd/yyyy h:mm a'
-                }}</div>
-            <div class="status"><span class="textColor">Status: </span>{{order.orderStatus | titlecase}}</div>
+<div class="container trackFullPage mt-4" *ngIf="myOrdersList?.length > 0">
+        <!-- Bootstrap Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Pizza Name</th>
+                    <th scope="col">Quantity</th>
+                    <!-- <th scope="col">Topping Name</th> -->
+                    <th scope="col">Topping Quantity</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr *ngFor="let order of myOrdersList;let i=index">
+                    <td class="text-primary">{{order.orderId}}</td>
+                    <td>{{getOrderName(order.orderName)}}</td>
+                    <td>{{order.pizzaQuantity}}</td>
+                    <td>{{order.toppingQuantity}}</td>
+                    <!-- <td>Extra Cheese</td> -->
+                    <td>{{order.orderTotal|currency:'INR':'symbol':'1.2-2'}}</td>
+                </tr>
+            </tbody>
+        </table>
         </div>
-        <div class="content">
-            <div class="imageDiv">
-                <div class="serviceImage"><img class=" serImg" src="./../../../../assets/Frame 446(1).svg"></div>
-                <div class="details">
-                    <div>{{order.eventName}}</div>
-                    <div>{{order.total}}</div>
-                    <div><span class="textColor">Included: </span>{{order.included}}</div>
-                    <div><span class="textColor">Order Date: </span>{{order.orderDate|date: 'MM/dd/yyyy h:mm a' }}</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-</div>
-
 <div *ngIf="myOrdersList?.length === 0">
     <h5 class="text-center">No data available</h5>
 </div>

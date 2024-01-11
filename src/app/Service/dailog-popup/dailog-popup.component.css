@@ -4,3 +4,34 @@
     justify-content: space-evenly;
 
 }
+.padd{
+    padding-left: 5px;
+}
+#popup{
+    width: 450px;
+
+}
+.perrponis {
+    padding-left: 20px;
+  }
+  .buttonforQuantity {
+    width: 90px;
+    height: 35px;
+    border: 1px solid white;
+    z-index: 999;
+    background: var(--Natural-White, #fff);
+    /* Outer Shadow */
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.24);
+  }
+  .Minus {
+    margin-left: 6px;
+    font-size: 34px;
+  }
+  .Plus {
+    margin-right: 6px;
+    font-size: 21px;
+  }
+  
+  .quantityCount {
+    margin: 0px 10px;
+  }

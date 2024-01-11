@@ -11,11 +11,6 @@ const routes: Routes = [
       import('../app/orders/orders.module').then((m) => m.OrdersModule),
   },
   {
-    path: 'home',
-    loadChildren: () =>
-      import('../app/home/home.module').then((m) => m.HomeModule),
-  },
-  {
     path: 'cart',
     loadChildren: () =>
       import('../app/cart/cart.module').then((m) => m.CartModule),
@@ -34,7 +29,7 @@ const routes: Routes = [
     import('../app/show-pizzas/show-pizzas.module').then((m) => m.ShowPizzasModule),  },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
 ];
