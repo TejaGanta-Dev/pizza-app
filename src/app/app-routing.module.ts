@@ -2,14 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './register/register/register.component';
-import { ShowPizzasComponent } from './show-pizzas/show-pizzas.component';
-
 const routes: Routes = [
-  {
-    path: 'orders',
-    loadChildren: () =>
-      import('../app/orders/orders.module').then((m) => m.OrdersModule),
-  },
   {
     path: 'cart',
     loadChildren: () =>

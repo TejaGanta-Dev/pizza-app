@@ -5,26 +5,6 @@
     <mat-dialog-actions>
       <button mat-button mat-dialog-close>Close</button>
     </mat-dialog-actions> -->
-<ng-container *ngIf="this.modelData.title == 'CANCEL_ORDER'">
-  <div class="header-container p-3 d-flex container align-items-center justify-content-between">
-    <h2>Cancel Order</h2>
-    <img src="/assets/img/cross.png" height="24px" width="24px" class="cursorPointer mr-5" (click)="closePopup()"
-      alt="crosstab" />
-  </div>
-  <div class="text-center text-success successText">
-    <h3 class="mt-3 text-dark">Are You Sure You Want to Cancel Order</h3>
-  </div>
-  <div class="buttonsContainer mt-5">
-    <button type="button" class="btn btn-primary">
-      Yes
-    </button>
-
-    <button type="button" class="btn btn-secondary" (click)="closePopup('NO')">
-      No
-    </button>
-
-  </div>
-</ng-container>
 
 <ng-container *ngIf="this.modelData.title ==='TRACK_ORDER'">
   <div class="header-container p-3 d-flex container align-items-center justify-content-between">
@@ -88,7 +68,8 @@
     </select>
     <div class="d-flex justify-content-start align-items-center mt-2">
       <label class="m-1" for="dropdown">Toppings</label>
-      <select   style="width:80px;height:35px; margin-left: 8px;" [(ngModel)]="selectedTopings" id="dropdown" name="fruit">
+      <select (click)="updateQuantity()"  style="width:80px;height:35px; margin-left: 8px;" [(ngModel)]="selectedTopings" id="dropdown" name="fruit">
+        <option selected value="">Select Quanity</option>
         <option *ngFor="let i of allTopings " [value]="i">{{i}}</option>
     </select>
       <div style="margin-left: 18px;" class="buttonforQuantity d-flex justify-content-between align-items-center">

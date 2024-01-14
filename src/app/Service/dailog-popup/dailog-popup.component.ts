@@ -23,9 +23,10 @@ export class DailogPopupComponent implements OnInit{
     console.log(this.modelData);
   }
   ngOnInit(): void {
-      if(this.modelData.title='ADD_TO_CART'){
-        this.modelData.pepporoniCount=1;
+      if(this.modelData.title==='ADD_TO_CART'){
+        this.modelData.pepporoniCount=0;
         this.modelData.product.productQuantity=1;
+        return
       }
   }
   modelData: any;
@@ -50,19 +51,24 @@ export class DailogPopupComponent implements OnInit{
         this.modelData.pepporoniCount--
       }
     }
+    updateQuantity(){
+      if(this.selectedTopings){
+      this.modelData.pepporoniCount=1;
+      }
+    }
     spinnerTimeOut(){
       setTimeout(() => {
         this.spinner.hide()
       }, 1000);  
     }
     allTopings:any=["Cheese","Black Olives","Onions","Green Capsicum","Mushrooms","Chicken Pepperoni","Paneer"];
-    selectedTopings:any='Cheese'
+    selectedTopings:any=''
     addToCart() {
       this.spinner.show();
       const customerDetails=this.helper.getLoginUserData();
       let body={
         "pizzaQuantity":this.modelData?.product.productQuantity,
-        "toppingName":[this.selectedTopings],
+        "toppingName":this.selectedTopings?[this.selectedTopings]:[],
         "toppingQuantity":this.modelData.pepporoniCount
       }
       this.api.addPizzaToCart(customerDetails.customerId,this.modelData.product.pizzaId, body).subscribe(

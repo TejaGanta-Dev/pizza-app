@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DailogPopupComponent } from '../Service/dailog-popup/dailog-popup.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiServiceService } from '../Service/Api-Service/api-service.service';
+import { HelperServiceService } from '../Service/helperService/helper-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-pizzas',
@@ -13,8 +15,14 @@ export class ShowPizzasComponent implements OnInit{
   constructor(
     public dialog: MatDialog,
     private spinner:NgxSpinnerService,
-    private api:ApiServiceService
+    private api:ApiServiceService,
+    private helper:HelperServiceService,
+    private route:Router
   ) {
+    const customerData=this.helper.getLoginUserData();
+    if(customerData?.customerId===undefined){
+    this.route.navigate(['/login'])
+    }
   }
   pizzas:any=[1,2,3,4,5,6,7,8,9]
 
@@ -23,14 +31,7 @@ ngOnInit(): void {
   this.getAllPizza()
 }
 
-getCategory(value:any){
-  if(value==='Vegetarian'){
-    return '/assets/img/veg.png'
-  }
-  else{
-    return '/assets/img/NonVeg.png'
-  }
-}
+
 spinnerTimeOut(){
   setTimeout(() => {
     this.spinner.hide()
@@ -82,7 +83,14 @@ spinnerTimeOut(){
       }
     });
   }
-
+  getCategory(value:any){
+    if(value==='Vegetarian'){
+      return '/assets/img/veg.png'
+    }
+    else{
+      return '/assets/img/NonVeg.png'
+    }
+  }
   getPizzaImageSource(val:number): string {
     return `/assets/img/Pizza${val}.png`;
   }

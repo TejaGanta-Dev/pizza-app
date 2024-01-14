@@ -1,1 +1,53 @@
-<p>cart works!</p>
+<section class="setFooterToBottom">
+<div class="fullSectionRow">
+    <div *ngFor="let pizza of getPizzas; let i=index" class="  d-flex justify-content-around">
+        <div  class="flexForProducts" >
+        <div class="onePizza d-flex justify-content-between align-items-between">
+            <div class="oneFlex d-flex justify-content-start align-items-center">
+            <div class="leftSide">
+                <img width="180px" height="130px" [src]="getPizzaImageSource(i+1)" alt="pizzaImg">
+            </div>
+            <div class="rightSide">
+                <div class="imgAndTitle d-flex">
+                    <img style="margin-top: 2px;" width="20px" height="20px" [src]="getCategory(pizza.pizzaCategory)" alt="Veg">
+                    <div class="title ml-2 h5">{{pizza.itemName}}</div>
+                </div>
+                <div class="price mt-1 h5"> {{(pizza.totalPrice)|currency:'INR':'symbol':'1.2-2'}}<img width="24px" height="24px" style="margin-left: 9px;" src="/assets/img/i.png" alt="pizzaImg">
+                </div>
+                <div class="description mt-1 mb-1">Pizza Description</div>
+                <div class="description">{{pizza.toppingName[0]}}</div>
+            </div>
+            </div>
+        </div>
+        <div class="toppingsQuantity d-flex justify-content-start align-items-center">
+            <div class="description">Toppings</div>
+            <select  (change)="updatePizza(pizza)"  style="width:80px;height:35px; margin-left: 8px;" [(ngModel)]="pizza?.toppingName[0]" id="dropdown" >
+                <option selected value="undefined">Select Quanity</option>
+                <option *ngFor="let i of allTopings " [value]="i">{{i}}</option>
+            </select>
+            <div style="margin-left: 18px;" class="buttonforQuantity d-flex justify-content-between align-items-center">
+                <div (click)="minusQuantity(pizza)" class="Minus cursorPointer">-</div>
+                <div class="quantityCount">{{pizza.toppingQuantity}}</div>
+                <div (click)="plusQuantity(pizza)" class="Plus cursorPointer">+</div>
+              </div>
+        </div>
+        <div class="addtoCart d-flex justify-content-start align-items-center">
+            <div class="description">Quantity</div>
+            <select (change)="updatePizza(pizza)"  style="width: 60px; height: 25px; margin-left: 8px;" [(ngModel)]="pizza.pizzaQuantity" id="dropdown" name="fruit">
+                <option *ngFor="let i of [1,2,3,4,5,6,7,8,9] " [value]="i">{{i}}</option>
+            </select>
+            <div style="width:24px; height:24px;margin-left:25px">
+                <img (click)="deleteCart(pizza)" src="/assets/img/cross.png" height="24px" width="24px" class="cursorPointer mr-5" />
+            </div>
+        </div>
+    <!-- </div> -->
+</div>
+</div>
+</div>
+<div *ngIf="getPizzas?.length != 0" class="d-flex justify-content-center align-items-center align-content-center">
+    <button (click)="placeOrder()" style="width:200px; height:50px" class="btn btn-primary">place order  {{getPizzaPrice(getPizzas)|currency:'INR':'symbol':'1.2-2'}}</button>
+</div>
+<div *ngIf="getPizzas?.length === 0">
+    <h5 class="text-center mt-2">No data available</h5>
+</div>
+</section>

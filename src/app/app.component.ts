@@ -9,12 +9,6 @@ import { HelperServiceService } from './Service/helperService/helper-service.ser
 })
 export class AppComponent {
 constructor(private helper:HelperServiceService,private router:Router){
-  const customerData=this.helper.getLoginUserData();
-if(customerData?.customerId){
-this.router.navigate(['/pizza'])
-}else{
-this.router.navigate(['/login'])
-}
 }  title = 'pizza-app';
 
 

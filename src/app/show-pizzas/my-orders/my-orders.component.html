@@ -1,4 +1,6 @@
-<div class="container trackFullPage mt-4" *ngIf="myOrdersList?.length > 0">
+
+<section class="setFooterToBottom">
+    <div class="container trackFullPage mt-4" *ngIf="myOrdersList?.length > 0">
         <!-- Bootstrap Table -->
         <table class="table">
             <thead>
@@ -27,3 +29,4 @@
 <div *ngIf="myOrdersList?.length === 0">
     <h5 class="text-center">No data available</h5>
 </div>
+</section>

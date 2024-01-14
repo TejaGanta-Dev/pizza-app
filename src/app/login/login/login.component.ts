@@ -11,7 +11,12 @@ import { HelperServiceService } from 'src/app/Service/helperService/helper-servi
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private route: Router, private api: ApiServiceService,private helper:HelperServiceService,private spinner:NgxSpinnerService) {}
+  constructor(private route: Router, private api: ApiServiceService,private helper:HelperServiceService,private spinner:NgxSpinnerService) {
+    const customerData=this.helper.getLoginUserData();
+    if(customerData?.customerId){
+    this.route.navigate(['/pizza'])
+    }
+  }
   loginSchema: any = {
     username: '',
     password: '',

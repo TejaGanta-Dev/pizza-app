@@ -11,11 +11,11 @@ import { ApiServiceService } from 'src/app/Service/Api-Service/api-service.servi
 export class RegisterComponent {
   constructor(private router: ActivatedRoute, private route: Router,private api:ApiServiceService, private spinner:NgxSpinnerService) {}
   registerSchema: any = {
-    customerName: 'Tejaaa',
-    mobileNumber: '9997773773',
-    address: 'jhh  duifhiuwe ikuhwirgfiygewd',
+    customerName: '',
+    mobileNumber: '',
+    address: '',
     gender: '',
-    emailId:'@capgemini.com'
+    emailId:''
   };
 
   navigateToLogin() {

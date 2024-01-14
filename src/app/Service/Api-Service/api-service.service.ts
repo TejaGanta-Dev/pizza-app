@@ -49,21 +49,21 @@ export class ApiServiceService {
     return this.http.post<any>(`${this.BASE_URL}/customer/cart/addPizza/${customerId}/${pizzaId}`,body);
   }
 
-  // viewAllCart(body:any): Observable<any> {
-  //   return this.http.get<any>(`${this.BASE_URL} customer/cart/viewAllPizzas/${customerId}`,body);
-  // }
+  viewAllCart(customerId:any): Observable<any> {
+    return this.http.get<any>(`${this.BASE_URL}/customer/cart/viewAllPizzas/${customerId}`);
+  }
 
-  // modifyCartItem(body:any): Observable<any> {
-  //   return this.http.put<any>(`${this.BASE_URL} customer/cart/updatePizza/${itemId}`,body);
-  // }
+  modifyCartItem(itemId:number,body:any): Observable<any> {
+    return this.http.put<any>(`${this.BASE_URL}/customer/cart/updatePizza/${itemId}`,body);
+  }
 
-  // removeCartItem(body:any): Observable<any> {
-  //   return this.http.delete<any>(`${this.BASE_URL} customer/cart/deletePizza/${itemId}`,body);
-  // }
+  removeCartItem(itemId:any): Observable<any> {
+    return this.http.delete<any>(`${this.BASE_URL}/customer/cart/deletePizza/${itemId}`);
+  }
 
-  // placeOrder(body:any): Observable<any> {
-  //   return this.http.post<any>(`${this.BASE_URL} order/placeOrder/${customerId}`,body);
-  // }
+  placeOrder(customerId:any): Observable<any> {
+    return this.http.post<any>(`${this.BASE_URL}/order/placeOrder/${customerId}`,{});
+  }
 
   getAllOrders(customerId:any): Observable<any> {
     return this.http.get<any>(`${this.BASE_URL}/order/views/${customerId}`);

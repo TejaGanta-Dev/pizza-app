@@ -9,4 +9,8 @@
 .fullSection{
     padding: 20px;
     margin: 6px;
+    background-image: url('/assets/img/dummyImage.jpg');
+    background-size: cover;
+    color: white;
+    font-style: italic;
 }
