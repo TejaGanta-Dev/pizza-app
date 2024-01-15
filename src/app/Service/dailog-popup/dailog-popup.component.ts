@@ -32,7 +32,7 @@ export class DailogPopupComponent implements OnInit{
   modelData: any;
   productQuantity:any=1
   closePopup(res?: any) {
-    this.dialogRef.close({ values: res });
+    this.dialogRef.close({ values: res })
   }
   getOrderName(orderList: any) {
     let OrderName=''

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiServiceService } from 'src/app/Service/Api-Service/api-service.service';
+import { HelperServiceService } from 'src/app/Service/helperService/helper-service.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,12 @@ import { ApiServiceService } from 'src/app/Service/Api-Service/api-service.servi
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  constructor(private router: ActivatedRoute, private route: Router,private api:ApiServiceService, private spinner:NgxSpinnerService) {}
+  constructor(private router: ActivatedRoute, private route: Router,private api:ApiServiceService, private spinner:NgxSpinnerService,private helper:HelperServiceService) {
+    const customerData=this.helper.getLoginUserData();
+    if(customerData?.customerId){
+    this.route.navigate(['/pizza'])
+    }
+  }
   registerSchema: any = {
     customerName: '',
     mobileNumber: '',

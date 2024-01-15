@@ -26,6 +26,19 @@ export class ApiServiceService {
   getAllPizza(): Observable<any>{
     return this.http.get<any>(`${this.BASE_URL}/pizza/view`);
   }
+  postPizza(body:any): Observable<any> {
+    return this.http.post<any>(`${this.BASE_URL}/admin/pizza/add`,body);
+  }
+
+  deletePizza(pizzaId:any): Observable<any> {
+    return this.http.delete<any>(`${this.BASE_URL}/admin/pizza/delete/${pizzaId}`);
+  }
+  
+
+
+  updatePizza(pizzaid:number,body:any): Observable<any> {
+    return this.http.put<any>(`${this.BASE_URL}/admin/pizza/update/${pizzaid}`,body);
+  }
   
 
   
@@ -92,7 +105,7 @@ export class ApiServiceService {
 //admin
 
 loginAsAdmin(body:any): Observable<any> {
-  return this.http.post<any>(`${this.BASE_URL}/`,body);
+  return this.http.post<any>(`${this.BASE_URL}/admin/login`,body);
 }
 
 trackOrder(orderId:any): Observable<any> {

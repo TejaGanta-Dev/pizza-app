@@ -53,6 +53,16 @@
         </div>
       </ng-container> -->
 
+    <ng-container *ngIf="this.modelData.title == 'DELETE-PIZZA'">
+      <div id="confirmationDialog"  class="confirmation-dialog">
+        <p>Are you sure you want to delete this Pizza?</p>
+
+        <div class="d-flex justify-content-around">
+        <button (click)="closePopup('YES')">Yes</button>
+        <button (click)="closePopup('NO')">No</button>
+      </div>
+      </div>
+      </ng-container>
       <ng-container *ngIf="this.modelData.title == 'ADD_TO_CART'">
         <div class="header-container p-3 d-flex container align-items-end justify-content-end">
           <img  src="/assets/img/cross.png" height="24px" width="24px" class="cursorPointer mr-5" (click)="closePopup()" alt="crosstab" />

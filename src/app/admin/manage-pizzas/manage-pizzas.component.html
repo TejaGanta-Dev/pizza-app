@@ -1,25 +1,42 @@
 <section class="setFooterToBottom">
+  <div class="d-flex justify-content-center align-items-center">
     <table>
-        <thead>
-          <tr>
-            <th>S.No</th>
-            <th>Pizza Name</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Update</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Margherita</td>
-            <td>Classic</td>
-            <td>$10.99</td>
-            <td><button class="update-btn">Update</button></td>
-            <td><button class="delete-btn">Delete</button></td>
-          </tr>
-          <!-- Add more rows as needed -->
-        </tbody>
-      </table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Pizza Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th><div (click)="addPizza()" class="addPizza d-flex justify-content-center align-items-center">
+        <img width="24px" height="24px" src="assets/img/add.png" alt="addPizza">Add Pizza</div></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pizza of getPizzas;let i=index">
+          <td>{{i+1}}</td>
+          <td><input *ngIf="pizza?.editPizza" [(ngModel)]="pizza.pizzaName" type="text" name="pizzaName" id="pizzaName"><span
+              *ngIf="!pizza?.editPizza">{{pizza.pizzaName}}</span></td>
+          <td>
+            <select [(ngModel)]="pizza.pizzaCategory" *ngIf="pizza?.editPizza" id="foodType" name="foodType">
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="NonVegetarian">Non-Vegetarian</option>
+            </select>
+            <span *ngIf="!pizza?.editPizza">{{pizza.pizzaCategory}}</span>
+          </td>
+          <td><input [(ngModel)]="pizza.price" *ngIf="pizza?.editPizza" type="number" name="pizzaName" id="pizzaName"><span
+              *ngIf="!pizza?.editPizza">{{(pizza.price)|currency:'INR':'symbol':'1.2-2'}}</span></td>
+          <td class="link d-flex justify-content-center align-items-center">
+            <button *ngIf="pizza?.editPizza" (click)="savePizza(pizza)" style="height:30px;width:90px" class="btn btn-primary">Save</button>
+             <img *ngIf="!pizza?.editPizza" (click)="editPizza(pizza)"
+              width="20px" height="20px" src="assets/img/pencil.png" alt="edit"> </td>
+          <td>
+            <div *ngIf="!pizza?.editPizza" class="link d-flex justify-content-center align-items-center"><img width="20px" height="20px"
+               (click)="deletePizzaConfirmDailog(pizza)" src="assets/img/delete.png" alt="delete"></div>
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
 </section>

@@ -35,3 +35,9 @@
   .quantityCount {
     margin: 0px 10px;
   }
+
+  .confirmation-dialog {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }

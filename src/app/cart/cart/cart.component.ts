@@ -18,6 +18,11 @@ export class CartComponent {
     private helper: HelperServiceService,
     private route: Router
   ) {
+    const customerData=this.helper.getLoginUserData();
+    if(customerData?.customerId===undefined){
+    this.route.navigate(['/login'])
+    return
+    }
     this.viewAllCart()
   }
   getPizzas: any = [];

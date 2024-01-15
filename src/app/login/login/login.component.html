@@ -1,14 +1,16 @@
 <div class=' mt-5 d-flex justify-content-center align-items-center'>
   <div class="card">
     <form>
-      <h1>Customer </h1>
+      <h1>{{adminOrCustomer()}} </h1>
       <input  autocomplete="off" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="loginSchema.username" placeholder="Email or Username" />
       <input type="password"[ngModelOptions]="{standalone: true}" [(ngModel)]="loginSchema.password" placeholder="Password" />
-      <button  (click)="loginAsUser()" class="button link">Login</button>
+      <button [ngClass]="{'special-class': disableButton()}"  *ngIf="!isAdminToggle" [disabled]="disableButton()" (keyup.enter)="loginAsUser()" (click)="loginAsUser()" class="button link">Login</button>
+      <button [ngClass]="{'special-class': disableButton()}" *ngIf="isAdminToggle" (keyup.enter)="loginAsAdmin()" (click)="loginAsAdmin()" class="button link">Login</button>
       <p class="link">
-       <span
+       <span 
+       (click)="toggleBoolean()"
           class="forget"
-          >Admin Login</span
+          >{{customerorAdmin()}} Login</span
         >
       </p>
       <h5 (click)="navigateToLogin()">create account?<a class="text-primary cursorPointer" > Create</a></h5>
