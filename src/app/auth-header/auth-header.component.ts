@@ -16,9 +16,9 @@ export class AuthHeaderComponent implements OnInit {
       return
     }
   }
-  adminLogged:boolean=!true;
+  adminLogged:boolean=false;
   ngOnInit(): void {
-     this.adminLogged=true;
+   //  this.adminLogged=true;
     this.helper.sharedDataForDashboard$.subscribe((res) => {
       console.log(res);
       setTimeout(() => {

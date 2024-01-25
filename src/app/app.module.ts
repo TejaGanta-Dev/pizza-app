@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './register/register/register.component';
 import { ShowPizzasComponent } from './show-pizzas/show-pizzas.component';
 import { FooterComponent } from './footer/footer.component';
-import { AuthHeaderComponent } from './show-pizzas/auth-header/auth-header.component';
+import { AuthHeaderComponent } from './auth-header/auth-header.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DailogPopupComponent } from './Service/dailog-popup/dailog-popup.component';
 import { NgxSpinnerModule } from 'ngx-spinner';

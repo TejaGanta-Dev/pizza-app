@@ -21,6 +21,7 @@ export class TrackPizzaComponent {
   }
   OrderId: any = '';
   trackOrder() {
+    if(this.OrderId){
     this.spinner.show()
     this.api.trackOrder(this.OrderId).subscribe(
       (res) => {
@@ -38,6 +39,7 @@ export class TrackPizzaComponent {
       }
     );
   }
+}
   spinnerTimeOut() {
     setTimeout(() => {
       this.spinner.hide()

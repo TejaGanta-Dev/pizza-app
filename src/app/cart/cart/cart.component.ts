@@ -97,7 +97,7 @@ export class CartComponent {
   updatePizza(pizza: any) {
     const body = {
       "pizzaQuantity": parseInt(pizza.pizzaQuantity),
-      "toppings": [pizza.toppingName[0]],
+      "toppingName": [pizza.toppingName[0]],
       "toppingQuantity": pizza.toppingQuantity
     }
     this.modifyCartItem(pizza, body);
